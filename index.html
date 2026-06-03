@@ -1,8 +1,9 @@
-<!-- Jury Reasoning Study — Participant Enrolment Site -->
-<!-- University of Salford | Researcher: Dan Lockwood -->
+<!-- Forensic Case Judgments Study — Participant Enrolment Site -->
+<!-- University of Salford | Researcher: Dan Lockwood | Ethics Ref 2026-15216-15788 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jury Reasoning Study — Take Part | University of Salford</title>
+<title>Forensic Case Judgments Study — Take Part | University of Salford</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
   :root{
     --red:#c8102e; --red-deep:#9e0c24; --slate:#1f2a37; --slate-2:#2c3a4a;
@@ -36,8 +37,8 @@
      radial-gradient(circle at 85% 15%,rgba(200,162,74,.22),transparent 45%);pointer-events:none}
   .eyebrow{display:inline-block;border:1px solid rgba(255,255,255,.5);border-radius:30px;
      padding:6px 16px;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
-  .hero h1{font-size:clamp(30px,6vw,46px);font-weight:700;max-width:14ch}
-  .hero p.lede{font-size:clamp(16px,2.4vw,19px);margin-top:16px;max-width:46ch;color:#f3e7ea}
+  .hero h1{font-size:clamp(28px,6vw,44px);font-weight:700;max-width:18ch}
+  .hero p.lede{font-size:clamp(16px,2.4vw,19px);margin-top:16px;max-width:48ch;color:#f3e7ea}
   .hero .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
   .pill{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);border-radius:8px;
      padding:8px 14px;font-size:13.5px;font-weight:500}
@@ -79,6 +80,12 @@
   .band .benefit{display:flex;gap:13px;align-items:center;margin-top:16px;font-size:16px}
   .band .benefit .dot{flex:0 0 10px;height:10px;border-radius:50%;background:var(--gold)}
 
+  /* topic note */
+  .topic{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;
+     padding:20px 22px;margin-top:24px}
+  .topic h3{font-size:16px;color:var(--slate);margin-bottom:8px;font-family:var(--serif)}
+  .topic p{font-size:14.5px;color:var(--muted)}
+
   /* what to expect */
   .expect{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;margin:24px 0;box-shadow:var(--shadow)}
   .expect h3{font-size:19px;color:var(--slate);margin-bottom:6px;font-family:var(--serif)}
@@ -98,7 +105,7 @@
   .field{margin-bottom:18px}
   label.lab{display:block;font-weight:600;font-size:14px;color:var(--slate);margin-bottom:7px}
   label.lab .req{color:var(--red)}
-  input[type=text],input[type=email],input[type=tel],textarea,select{
+  input[type=text],input[type=email],textarea,select{
      width:100%;border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-size:15px;
      font-family:var(--sans);background:#fdfcfa;color:var(--ink);transition:border .15s,box-shadow .15s}
   input:focus,textarea:focus,select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.12)}
@@ -112,6 +119,7 @@
   .privacy{background:var(--cream);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;
      padding:16px 18px;font-size:13px;color:var(--muted);margin:6px 0 20px}
   .privacy strong{color:var(--slate)}
+  .privacy a{color:var(--red);font-weight:600}
   .err{color:var(--red);font-size:13px;margin-top:6px;display:none}
   .form-msg{display:none;background:#eaf6ef;border:1px solid #bfe3cf;color:#155c3a;border-radius:11px;
      padding:18px 20px;font-size:15px;margin-top:6px}
@@ -128,6 +136,9 @@
   .qr-missing{width:200px;height:200px;display:none;align-items:center;justify-content:center;text-align:center;
      font-size:12.5px;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:8px;padding:16px}
   .qr-cap{margin-top:13px;font-size:13px;color:var(--muted);font-weight:600}
+  .share-btn{background:var(--red);color:#fff;margin-top:18px;display:inline-flex;align-items:center;gap:9px}
+  .share-btn:hover{background:var(--red-deep)}
+  .share-msg{display:block;margin-top:10px;font-size:13px;color:var(--ok);font-weight:600;min-height:1em}
 
   /* footer */
   footer{background:var(--slate);color:#cdd6df;padding:40px 0 30px;font-size:14px}
@@ -159,7 +170,7 @@
         <div class="t3">MANCHESTER</div>
       </div>
     </div>
-    <div class="ethics-tag">Ethics-approved study</div>
+    <div class="ethics-tag">Ethics ref 2026-15216-15788</div>
   </div>
 </div>
 
@@ -167,17 +178,17 @@
 <header class="hero">
   <div class="wrap">
     <span class="eyebrow">Research Participants Wanted</span>
-    <h1>The Jury Reasoning Study</h1>
-    <p class="lede">A 45–60 minute private interview exploring how people evaluate <strong>responsibility and risk</strong> in a fictional forensic case. UK adults aged 18 or over.</p>
+    <h1>The Forensic Case Judgments Study</h1>
+    <p class="lede">A 45–60 minute interview exploring how people make judgements about <strong>responsibility and risk</strong> in a short, fictional forensic case. UK adults aged 18 or over.</p>
     <div class="meta">
       <span class="pill">⏱ 45–60 minutes</span>
       <span class="pill">💻 Microsoft Teams or Salford campus</span>
       <span class="pill">🎙 Audio-recorded</span>
-      <span class="pill">🚫 No personal questions</span>
+      <span class="pill">📄 Fictional case material</span>
     </div>
-    <div><span class="spots">Only 15 places available</span></div>
+    <div><span class="spots">A small number of places (approx. 10–15)</span></div>
     <div class="cta-row">
-      <a href="#enrol" class="btn btn-primary">Enrol now</a>
+      <a href="#enrol" class="btn btn-primary">Register your interest</a>
       <a href="#about" class="btn btn-ghost">Find out more</a>
     </div>
   </div>
@@ -188,12 +199,12 @@
   <div class="wrap">
     <div class="kicker">About the study</div>
     <h2>What is this research about?</h2>
-    <p class="lead-text">This study looks at how ordinary people, acting as a juror would, reason about a fictional forensic case. You will read a short scenario and discuss your judgements about the responsibility and risk involved. There are no right or wrong answers, and the case is entirely fictional. Your views help shape how forensic science understands lay decision-making.</p>
+    <p class="lead-text">This study explores how members of the public reason about a short, fictional forensic case, including their judgements about responsibility, risk, and the most appropriate response. You will read the case material and discuss your views in a one-to-one interview. There are no right or wrong answers, and the case is entirely fictional. Your views help build understanding of how people interpret forensic information.</p>
     <div class="grid">
       <div class="card">
         <div class="ic">⚖️</div>
         <h3>The focus</h3>
-        <p>Evaluating responsibility and risk in a fictional forensic case.</p>
+        <p>How people judge responsibility and risk in a fictional forensic case.</p>
       </div>
       <div class="card">
         <div class="ic">🕐</div>
@@ -203,12 +214,12 @@
       <div class="card">
         <div class="ic">📋</div>
         <h3>What you'll do</h3>
-        <p>Read and discuss a fictional case. No questions about your personal life.</p>
+        <p>Read and discuss fictional case material. No questions about your own life.</p>
       </div>
       <div class="card">
         <div class="ic">🎙️</div>
         <h3>Recording</h3>
-        <p>The interview is audio-recorded so responses can be analysed accurately.</p>
+        <p>The interview is audio-recorded so responses can be transcribed accurately.</p>
       </div>
     </div>
   </div>
@@ -220,9 +231,9 @@
     <div class="kicker">Who can take part</div>
     <h2>Eligibility</h2>
     <ul class="check-list">
-      <li><span class="tick">✓</span><div><strong>Aged 18 or over</strong><span>You must be an adult resident in the UK.</span></div></li>
-      <li><span class="tick">✓</span><div><strong>Eligible for jury service</strong><span>Broadly: aged 18–75, a UK resident, and not currently disqualified from jury duty.</span></div></li>
+      <li><span class="tick">✓</span><div><strong>Aged 18 or over and resident in the UK</strong><span>The study is open to UK adults from the general public.</span></div></li>
       <li><span class="tick">✓</span><div><strong>Confident reading and discussing in English</strong><span>The case material and interview are in English.</span></div></li>
+      <li><span class="tick">✓</span><div><strong>Happy to be audio-recorded</strong><span>The interview is audio-recorded so it can be transcribed. Recording consent is required to take part.</span></div></li>
     </ul>
   </div>
 </section>
@@ -233,7 +244,7 @@
     <div class="kicker">Why take part</div>
     <h2>Benefits of participating</h2>
     <p class="lead-text">This is voluntary, unpaid research, but your contribution genuinely matters.</p>
-    <div class="benefit"><span class="dot"></span><div>Help <strong>shape forensic science</strong> and how it understands juror reasoning.</div></div>
+    <div class="benefit"><span class="dot"></span><div>Help <strong>build understanding</strong> of how people interpret forensic information.</div></div>
     <div class="benefit"><span class="dot"></span><div>Take part flexibly — <strong>online or in person</strong>, at a time that suits you.</div></div>
     <div class="benefit"><span class="dot"></span><div>Contribute to a study reviewed and approved by the <strong>University of Salford Health Taught Ethics Panel</strong>.</div></div>
     <p class="lead-text" style="margin-top:22px;font-size:14px;color:#aab6c1">Please note: participation is unpaid and voluntary. You may withdraw at any point without giving a reason.</p>
@@ -244,19 +255,25 @@
 <section id="enrol">
   <div class="wrap">
     <div class="kicker">Register your interest</div>
-    <h2>Enrol in the study</h2>
-    <p class="lead-text">Complete the short form below. Your details go directly to the researcher, who will be in touch to arrange a convenient time. No data is shared with third parties.</p>
+    <h2>Take part in the study</h2>
+    <p class="lead-text">Registering your interest is not a commitment to take part. It simply lets the researcher send you the full information sheet so you can decide. Your details go directly to the researcher and are not shared with third parties.</p>
+
+    <div class="topic">
+      <h3>A note on the topic</h3>
+      <p>This study uses entirely fictional case material that touches on themes including mental health, aggression, and the criminal justice system. It contains no graphic detail, and you will not be asked about your own experiences. If you feel these themes might be distressing for you at the moment, it may not be the right time to take part. Full information, including details of support services, is provided before any interview.</p>
+    </div>
 
     <div class="expect">
       <h3>What to expect</h3>
       <p class="sub">Here is exactly how taking part works, from start to finish.</p>
       <ol class="steps">
-        <li><div><strong>Complete the form below</strong><span>It takes around two minutes. Enter your details, choose how you would like to take part, and tick the confirmation boxes.</span></div></li>
-        <li><div><strong>Submit and send</strong><span>When you press submit, your email app opens with your details already filled in. Simply press send, and your registration is complete. If your email app does not open, you can email the researcher directly using the address shown.</span></div></li>
-        <li><div><strong>We get in touch</strong><span>The researcher will reply by email, usually within a few days, to arrange a date and time that suits you.</span></div></li>
-        <li><div><strong>Your interview</strong><span>You attend one 45 to 60 minute session on Microsoft Teams or at Salford campus. You will read a short fictional case and discuss your views. There are no right or wrong answers, and no questions about your personal life.</span></div></li>
+        <li><div><strong>Register your interest</strong><span>Complete the short form below. When you press submit, your email app opens with your details ready — just press send. If it does not open, you can email the researcher directly using the address shown.</span></div></li>
+        <li><div><strong>Receive the information sheet</strong><span>The researcher emails you the Participant Information Sheet. You will have at least 24 hours to read it and consider whether you wish to take part.</span></div></li>
+        <li><div><strong>Give your consent</strong><span>If you decide to proceed, you complete and return a Consent Form before your interview is arranged. No interview takes place until this is signed.</span></div></li>
+        <li><div><strong>Your interview</strong><span>One 45 to 60 minute session on Microsoft Teams or at Salford campus. The researcher reconfirms your consent, you complete a brief anonymous demographic form, and then you read and discuss the fictional case. There are no right or wrong answers, and no questions about your personal life.</span></div></li>
+        <li><div><strong>Afterwards</strong><span>You receive a debrief with further information and support contacts. You may withdraw your data up to one week after your interview.</span></div></li>
       </ol>
-      <p class="note"><b>Good to know:</b> participation is voluntary and unpaid, the interview is audio-recorded so responses can be analysed accurately, and you may withdraw at any time without giving a reason. Places are limited to 15, so early registration is encouraged.</p>
+      <p class="note"><b>Good to know:</b> participation is voluntary and unpaid, the interview is audio-recorded so responses can be transcribed accurately, and you may withdraw at any time without giving a reason. Only a small number of participants (approximately 10–15) are needed, so early registration is encouraged.</p>
     </div>
 
     <div class="form-wrap">
@@ -274,21 +291,15 @@
           </div>
         </div>
 
-        <div class="two">
-          <div class="field">
-            <label class="lab" for="phone">Phone (optional)</label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel">
-          </div>
-          <div class="field">
-            <label class="lab" for="format">Preferred format <span class="req">*</span></label>
-            <select id="format" name="format">
-              <option value="">Please choose…</option>
-              <option>Microsoft Teams (online)</option>
-              <option>Salford campus (in person)</option>
-              <option>Either is fine</option>
-            </select>
-            <div class="err" data-for="format">Please choose a preferred format.</div>
-          </div>
+        <div class="field">
+          <label class="lab" for="format">Preferred format <span class="req">*</span></label>
+          <select id="format" name="format">
+            <option value="">Please choose…</option>
+            <option>Microsoft Teams (online)</option>
+            <option>Salford campus (in person)</option>
+            <option>Either is fine</option>
+          </select>
+          <div class="err" data-for="format">Please choose a preferred format.</div>
         </div>
 
         <div class="field">
@@ -296,30 +307,25 @@
           <textarea id="avail" name="avail" placeholder="e.g. weekday evenings, or Tuesday and Thursday mornings"></textarea>
         </div>
 
-        <div class="field">
-          <label class="lab" for="notes">Anything else you'd like us to know? (optional)</label>
-          <textarea id="notes" name="notes"></textarea>
-        </div>
-
         <label class="lab" style="margin-bottom:11px">Please confirm <span class="req">*</span></label>
         <label class="checkbox"><input type="checkbox" id="c18"><span>I am aged 18 or over and resident in the UK.</span></label>
-        <label class="checkbox"><input type="checkbox" id="cjury"><span>I am eligible for jury service in the UK (broadly: aged 18–75, a UK resident, not currently disqualified).</span></label>
         <label class="checkbox"><input type="checkbox" id="ceng"><span>I am confident reading and discussing in English.</span></label>
+        <label class="checkbox"><input type="checkbox" id="crec"><span>I understand the interview is audio-recorded, and I am willing to be recorded.</span></label>
         <div class="err" data-for="confirm">Please tick all three confirmation boxes to continue.</div>
 
         <div class="privacy">
-          <strong>How your data is used.</strong> The information you provide is used solely to arrange your participation in this study. It is held securely by the researcher under the University of Salford and is not shared with third parties. You may withdraw at any time, and your details will be deleted once recruitment is complete. For questions about your data, contact the researcher below.
+          <strong>How your data is used.</strong> If you register your interest, your name and email are used only to send you the Participant Information Sheet and to arrange your participation. Contact details are held securely on University of Salford-approved systems, stored separately from any research data, and destroyed once the withdrawal window has closed. The lawful basis for processing is your consent (Article 6(1)(a) UK GDPR), and only the information needed is collected. Full details are set out in the Participant Information Sheet you will receive and in the University's <a href="https://www.salford.ac.uk/privacy/introduction/research-privacy-notice" target="_blank" rel="noopener">research privacy notice</a>.
         </div>
 
-        <label class="checkbox"><input type="checkbox" id="cconsent"><span>I consent to my details being used to contact me about taking part in this study. <span class="req">*</span></span></label>
-        <div class="err" data-for="consent">Please give consent so we can contact you.</div>
+        <label class="checkbox"><input type="checkbox" id="cconsent"><span>I consent to the researcher contacting me by email to send the information sheet and arrange participation. <span class="req">*</span></span></label>
+        <div class="err" data-for="consent">Please give consent so the researcher can contact you.</div>
 
-        <button type="submit" class="btn submit">Submit my enrolment</button>
+        <button type="submit" class="btn submit">Register my interest</button>
       </form>
 
       <div class="form-msg" id="formMsg">
         <strong>Thank you — your email is ready to send.</strong><br>
-        Your email app should have opened with your details pre-filled. Please press <em>send</em> to complete your enrolment.<br><br>
+        Your email app should have opened with your details pre-filled. Please press <em>send</em> to register your interest. The researcher will then email you the information sheet.<br><br>
         If nothing opened, please email the researcher directly at
         <a href="mailto:D.Lockwood6@edu.salford.ac.uk">D.Lockwood6@edu.salford.ac.uk</a> with your name and preferred format.
       </div>
@@ -333,12 +339,15 @@
     <div class="qr-text">
       <div class="kicker">Share the study</div>
       <h2>Know someone who could take part?</h2>
-      <p class="lead-text">We are looking for just 15 participants. If you know any UK adults who are eligible for jury service, please pass this code on. Scanning it opens this enrolment page.</p>
+      <p class="lead-text">Only a small number of participants are needed. If you know any UK adults aged 18 or over who might be interested, please pass this code on. Scanning it opens this page.</p>
+      <button id="shareBtn" class="btn share-btn">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
+        Share the study
+      </button>
+      <span id="shareMsg" class="share-msg"></span>
     </div>
     <div class="qr-card">
-      <img src="study-qr.png" alt="QR code linking to the Jury Reasoning Study enrolment page" class="qr-img"
-           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="qr-missing">Your QR code (study-qr.png) will appear here once uploaded alongside the page.</div>
+      <div id="qrbox" style="width:200px;height:200px"></div>
       <p class="qr-cap">Scan to open this page</p>
     </div>
   </div>
@@ -355,16 +364,65 @@
       </div>
       <div>
         <h3>About this study</h3>
-        <p>The Jury Reasoning Study is forensic psychology research conducted at the University of Salford, Manchester. Participation is voluntary and unpaid, and you may withdraw at any time.</p>
+        <p>A forensic psychology research project conducted at the University of Salford, Manchester. Participation is voluntary and unpaid, and you may withdraw at any time. Full title: The Role of Diagnostic Labels in Judgments of Responsibility, Dangerousness, and Punishment in Forensic Case Vignettes.</p>
       </div>
     </div>
     <div class="ethics-note">
-      This study has been reviewed and approved by the University of Salford Health Taught Ethics Panel.
+      This study has been reviewed and approved by the University of Salford Health Taught Ethics Panel. Ethics reference: 2026-15216-15788.
     </div>
   </div>
 </footer>
 
 <script>
+  // ---- Embedded QR code (generated in-page, no external file needed) ----
+  // Set QR_TARGET to your live web address once the site is hosted.
+  var QR_TARGET = "https://danlockwood.github.io/jury-study/";
+  function renderQR(){
+    var box = document.getElementById('qrbox');
+    if(!box) return;
+    if(typeof QRCode === 'undefined'){ return setTimeout(renderQR, 200); }
+    box.innerHTML = '';
+    new QRCode(box, { text:QR_TARGET, width:200, height:200,
+      colorDark:"#1f2a37", colorLight:"#ffffff", correctLevel: QRCode.CorrectLevel.H });
+  }
+  renderQR();
+
+  // ---- Share button (native share sheet on mobile, copy-link fallback) ----
+  var shareBtn = document.getElementById('shareBtn');
+  if(shareBtn){
+    shareBtn.addEventListener('click', async function(){
+      var msg = document.getElementById('shareMsg');
+      msg.textContent = '';
+      var shareText = "Take part in a University of Salford research study: a 45 to 60 minute interview about a short, fictional forensic case. UK adults aged 18 or over. Voluntary and unpaid.";
+      var shareData = { title: "Forensic Case Judgments Study — University of Salford", text: shareText, url: QR_TARGET };
+
+      // Try to attach the QR image as a file where supported
+      try{
+        var canvas = document.querySelector('#qrbox canvas');
+        if(canvas && navigator.canShare){
+          var blob = await new Promise(function(res){ canvas.toBlob(res, 'image/png'); });
+          if(blob){
+            var file = new File([blob], 'study-qr.png', {type:'image/png'});
+            if(navigator.canShare({files:[file]})){ shareData.files = [file]; }
+          }
+        }
+      }catch(e){}
+
+      if(navigator.share){
+        try{ await navigator.share(shareData); }
+        catch(e){ /* user dismissed the share sheet */ }
+      } else {
+        // Desktop fallback: copy the link, then offer the QR image
+        try{
+          await navigator.clipboard.writeText(QR_TARGET);
+          msg.textContent = 'Link copied to clipboard.';
+        }catch(e){ msg.textContent = QR_TARGET; }
+        var c = document.querySelector('#qrbox canvas');
+        if(c){ var a=document.createElement('a'); a.href=c.toDataURL('image/png'); a.download='study-qr.png'; a.click(); }
+      }
+    });
+  }
+
   // ---- Form handling (mailto, no third-party data processor) ----
   var form = document.getElementById('enrolForm');
   var RESEARCHER_EMAIL = "D.Lockwood6@edu.salford.ac.uk";
@@ -378,13 +436,11 @@
     e.preventDefault();
     var name = document.getElementById('name').value.trim();
     var email = document.getElementById('email').value.trim();
-    var phone = document.getElementById('phone').value.trim();
     var format = document.getElementById('format').value;
     var avail = document.getElementById('avail').value.trim();
-    var notes = document.getElementById('notes').value.trim();
     var c18 = document.getElementById('c18').checked;
-    var cjury = document.getElementById('cjury').checked;
     var ceng = document.getElementById('ceng').checked;
+    var crec = document.getElementById('crec').checked;
     var cconsent = document.getElementById('cconsent').checked;
 
     var ok = true;
@@ -394,21 +450,19 @@
     if(!name){ showErr('name', true); ok=false; }
     if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showErr('email', true); ok=false; }
     if(!format){ showErr('format', true); ok=false; }
-    if(!(c18 && cjury && ceng)){ showErr('confirm', true); ok=false; }
+    if(!(c18 && ceng && crec)){ showErr('confirm', true); ok=false; }
     if(!cconsent){ showErr('consent', true); ok=false; }
     if(!ok){ return; }
 
-    var subject = "Jury Reasoning Study — Enrolment from " + name;
+    var subject = "Forensic Case Study — Interest from " + name;
     var body =
-      "Hello Dan,\n\nI would like to take part in the Jury Reasoning Study. My details are below.\n\n" +
+      "Hello Dan,\n\nI would like to register my interest in taking part in the study. My details are below.\n\n" +
       "Name: " + name + "\n" +
       "Email: " + email + "\n" +
-      "Phone: " + (phone || "—") + "\n" +
       "Preferred format: " + format + "\n" +
-      "Availability: " + (avail || "—") + "\n" +
-      "Notes: " + (notes || "—") + "\n\n" +
-      "I confirm that I am aged 18+, eligible for jury service, confident in English, " +
-      "and I consent to being contacted about taking part.\n\nThank you.";
+      "Availability: " + (avail || "—") + "\n\n" +
+      "I confirm that I am aged 18 or over and a UK resident, confident in English, willing to be audio-recorded, " +
+      "and I consent to being contacted to receive the information sheet.\n\nThank you.";
 
     var link = "mailto:" + RESEARCHER_EMAIL +
       "?subject=" + encodeURIComponent(subject) +
