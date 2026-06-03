@@ -1,0 +1,422 @@
+<!-- Jury Reasoning Study — Participant Enrolment Site -->
+<!-- University of Salford | Researcher: Dan Lockwood -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jury Reasoning Study — Take Part | University of Salford</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --red:#c8102e; --red-deep:#9e0c24; --slate:#1f2a37; --slate-2:#2c3a4a;
+    --gold:#c8a24a; --cream:#f7f4ef; --paper:#ffffff; --ink:#26303a; --muted:#5d6b78;
+    --line:#e4ddd2; --ok:#1f7a52; --shadow:0 18px 50px -22px rgba(31,42,55,.45);
+    --serif:"Iowan Old Style",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+  h1,h2,h3{font-family:var(--serif);line-height:1.15;letter-spacing:.2px}
+
+  /* top bar */
+  .topbar{background:#fff;border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;gap:16px}
+  .logo-img{height:48px;width:auto;display:block}
+  .logo-fallback{display:none;align-items:center;gap:13px}
+  .logo-fallback .crest{width:42px;height:46px;background:var(--slate);border-radius:4px 4px 14px 14px;position:relative;flex:0 0 auto}
+  .logo-fallback .crest:after{content:"";position:absolute;left:50%;bottom:8px;transform:translateX(-50%);
+     width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:13px solid var(--red)}
+  .logo-fallback .bar{width:3px;height:40px;background:var(--red);border-radius:2px}
+  .logo-fallback .txt{font-family:var(--sans);line-height:1.04}
+  .logo-fallback .t1{font-size:13px;color:#222;font-weight:500}
+  .logo-fallback .t2{font-size:23px;color:#111;font-weight:800;letter-spacing:-.4px}
+  .logo-fallback .t3{font-size:12px;color:var(--red);font-weight:700;letter-spacing:2.5px}
+  .ethics-tag{color:var(--muted);font-size:12px;text-align:right}
+  @media(max-width:560px){.ethics-tag{display:none}}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,var(--red),var(--red-deep));color:#fff;padding:54px 0 48px;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;inset:0;background:
+     radial-gradient(circle at 85% 15%,rgba(200,162,74,.22),transparent 45%);pointer-events:none}
+  .eyebrow{display:inline-block;border:1px solid rgba(255,255,255,.5);border-radius:30px;
+     padding:6px 16px;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
+  .hero h1{font-size:clamp(30px,6vw,46px);font-weight:700;max-width:14ch}
+  .hero p.lede{font-size:clamp(16px,2.4vw,19px);margin-top:16px;max-width:46ch;color:#f3e7ea}
+  .hero .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+  .pill{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);border-radius:8px;
+     padding:8px 14px;font-size:13.5px;font-weight:500}
+  .spots{display:inline-block;background:var(--gold);color:#3a2c06;font-weight:700;border-radius:8px;
+     padding:8px 14px;font-size:13.5px;margin-top:18px}
+  .cta-row{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+  .btn{display:inline-block;border:none;border-radius:9px;font-weight:600;font-size:15px;
+     padding:14px 26px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+  .btn-primary{background:#fff;color:var(--red)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+  /* sections */
+  section{padding:46px 0}
+  .kicker{color:var(--red);font-weight:700;font-size:12.5px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+  h2{font-size:clamp(23px,4vw,30px);font-weight:700;color:var(--slate)}
+  .lead-text{font-size:17px;color:var(--ink);margin-top:14px;max-width:62ch}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:26px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+  .card h3{font-size:18px;color:var(--red);margin-bottom:8px}
+  .card p{color:var(--muted);font-size:14.5px}
+  .card .ic{width:38px;height:38px;border-radius:9px;background:var(--cream);display:flex;align-items:center;
+     justify-content:center;font-size:19px;margin-bottom:12px}
+
+  .check-list{list-style:none;margin-top:22px;display:grid;gap:12px}
+  .check-list li{display:flex;gap:13px;align-items:flex-start;background:var(--paper);
+     border:1px solid var(--line);border-radius:11px;padding:15px 18px}
+  .check-list .tick{flex:0 0 24px;height:24px;border-radius:50%;background:var(--ok);color:#fff;
+     display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:1px}
+  .check-list strong{display:block;color:var(--slate)}
+  .check-list span{color:var(--muted);font-size:14px}
+
+  .band{background:var(--slate);color:#fff}
+  .band .kicker{color:var(--gold)}
+  .band h2{color:#fff}
+  .band .lead-text{color:#cdd6df}
+  .band .benefit{display:flex;gap:13px;align-items:center;margin-top:16px;font-size:16px}
+  .band .benefit .dot{flex:0 0 10px;height:10px;border-radius:50%;background:var(--gold)}
+
+  /* form */
+  .form-wrap{background:var(--paper);border:1px solid var(--line);border-radius:18px;
+     padding:30px;box-shadow:var(--shadow);margin-top:8px}
+  .field{margin-bottom:18px}
+  label.lab{display:block;font-weight:600;font-size:14px;color:var(--slate);margin-bottom:7px}
+  label.lab .req{color:var(--red)}
+  input[type=text],input[type=email],input[type=tel],textarea,select{
+     width:100%;border:1px solid var(--line);border-radius:9px;padding:12px 14px;font-size:15px;
+     font-family:var(--sans);background:#fdfcfa;color:var(--ink);transition:border .15s,box-shadow .15s}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(138,21,56,.12)}
+  textarea{resize:vertical;min-height:80px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.two{grid-template-columns:1fr}}
+  .checkbox{display:flex;gap:11px;align-items:flex-start;background:var(--cream);border:1px solid var(--line);
+     border-radius:10px;padding:13px 15px;margin-bottom:11px;cursor:pointer;font-size:14px}
+  .checkbox input{margin-top:3px;flex:0 0 auto;width:17px;height:17px;accent-color:var(--red)}
+  .checkbox span{color:var(--ink)}
+  .privacy{background:var(--cream);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;
+     padding:16px 18px;font-size:13px;color:var(--muted);margin:6px 0 20px}
+  .privacy strong{color:var(--slate)}
+  .err{color:var(--red);font-size:13px;margin-top:6px;display:none}
+  .form-msg{display:none;background:#eaf6ef;border:1px solid #bfe3cf;color:#155c3a;border-radius:11px;
+     padding:18px 20px;font-size:15px;margin-top:6px}
+  .form-msg a{color:var(--red);font-weight:600}
+  .submit{width:100%;background:var(--red);color:#fff;font-size:16px;padding:16px;margin-top:8px}
+  .submit:hover{background:var(--red-deep)}
+
+  /* footer */
+  footer{background:var(--slate);color:#cdd6df;padding:40px 0 30px;font-size:14px}
+  footer h3{color:#fff;font-size:16px;margin-bottom:12px}
+  .foot-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  @media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
+  footer a{color:var(--gold);text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .ethics-note{border-top:1px solid #3a4756;margin-top:28px;padding-top:18px;font-size:12.5px;color:#9aa7b3;text-align:center}
+
+  /* researcher QR panel (hidden unless #researcher) */
+  #researcher{display:none;background:var(--paper);border-top:4px solid var(--gold)}
+  #researcher.show{display:block}
+  #qrbox{margin:18px auto 0;width:fit-content;background:#fff;padding:16px;border:1px solid var(--line);border-radius:12px}
+  .rtools input{max-width:520px}
+</style>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <img src="salford-logo.png" alt="University of Salford, Manchester" class="logo-img"
+         onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex'">
+    <div class="logo-fallback" id="logoFallback">
+      <svg width="40" height="46" viewBox="0 0 40 46" aria-hidden="true" style="flex:0 0 auto">
+        <path d="M2 3 H38 V25 Q38 40 20 44 Q2 40 2 25 Z" fill="#1f2a37"/>
+        <circle cx="10" cy="11" r="3.6" fill="none" stroke="#fff" stroke-width="2"/>
+        <circle cx="20" cy="11" r="3.6" fill="none" stroke="#fff" stroke-width="2"/>
+        <circle cx="30" cy="11" r="3.6" fill="none" stroke="#fff" stroke-width="2"/>
+        <path d="M20 21 l7 7 -7 7 -7 -7 z" fill="#c8102e"/>
+      </svg>
+      <div class="bar"></div>
+      <div class="txt">
+        <div class="t1">University of</div>
+        <div class="t2">Salford</div>
+        <div class="t3">MANCHESTER</div>
+      </div>
+    </div>
+    <div class="ethics-tag">Ethics-approved study</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Research Participants Wanted</span>
+    <h1>The Jury Reasoning Study</h1>
+    <p class="lede">A 45–60 minute private interview exploring how people evaluate <strong>responsibility and risk</strong> in a fictional forensic case. UK adults aged 18 or over.</p>
+    <div class="meta">
+      <span class="pill">⏱ 45–60 minutes</span>
+      <span class="pill">💻 Microsoft Teams or Salford campus</span>
+      <span class="pill">🎙 Audio-recorded</span>
+      <span class="pill">🚫 No personal questions</span>
+    </div>
+    <div><span class="spots">Only 15 places available</span></div>
+    <div class="cta-row">
+      <a href="#enrol" class="btn btn-primary">Enrol now</a>
+      <a href="#about" class="btn btn-ghost">Find out more</a>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="kicker">About the study</div>
+    <h2>What is this research about?</h2>
+    <p class="lead-text">This study looks at how ordinary people, acting as a juror would, reason about a fictional forensic case. You will read a short scenario and discuss your judgements about the responsibility and risk involved. There are no right or wrong answers, and the case is entirely fictional. Your views help shape how forensic science understands lay decision-making.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="ic">⚖️</div>
+        <h3>The focus</h3>
+        <p>Evaluating responsibility and risk in a fictional forensic case.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🕐</div>
+        <h3>The format</h3>
+        <p>One 45–60 minute interview, on Microsoft Teams or at Salford campus.</p>
+      </div>
+      <div class="card">
+        <div class="ic">📋</div>
+        <h3>What you'll do</h3>
+        <p>Read and discuss a fictional case. No questions about your personal life.</p>
+      </div>
+      <div class="card">
+        <div class="ic">🎙️</div>
+        <h3>Recording</h3>
+        <p>The interview is audio-recorded so responses can be analysed accurately.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="kicker">Who can take part</div>
+    <h2>Eligibility</h2>
+    <ul class="check-list">
+      <li><span class="tick">✓</span><div><strong>Aged 18 or over</strong><span>You must be an adult resident in the UK.</span></div></li>
+      <li><span class="tick">✓</span><div><strong>Eligible for jury service</strong><span>Broadly: aged 18–75, a UK resident, and not currently disqualified from jury duty.</span></div></li>
+      <li><span class="tick">✓</span><div><strong>Confident reading and discussing in English</strong><span>The case material and interview are in English.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- BENEFITS BAND -->
+<section class="band">
+  <div class="wrap">
+    <div class="kicker">Why take part</div>
+    <h2>Benefits of participating</h2>
+    <p class="lead-text">This is voluntary, unpaid research, but your contribution genuinely matters.</p>
+    <div class="benefit"><span class="dot"></span><div>Help <strong>shape forensic science</strong> and how it understands juror reasoning.</div></div>
+    <div class="benefit"><span class="dot"></span><div>Take part flexibly — <strong>online or in person</strong>, at a time that suits you.</div></div>
+    <div class="benefit"><span class="dot"></span><div>Contribute to a study reviewed and approved by the <strong>University of Salford Health Taught Ethics Panel</strong>.</div></div>
+    <p class="lead-text" style="margin-top:22px;font-size:14px;color:#aab6c1">Please note: participation is unpaid and voluntary. You may withdraw at any point without giving a reason.</p>
+  </div>
+</section>
+
+<!-- ENROL -->
+<section id="enrol">
+  <div class="wrap">
+    <div class="kicker">Register your interest</div>
+    <h2>Enrol in the study</h2>
+    <p class="lead-text">Complete the short form below. Your details go directly to the researcher, who will be in touch to arrange a convenient time. No data is shared with third parties.</p>
+
+    <div class="form-wrap">
+      <form id="enrolForm" novalidate>
+        <div class="two">
+          <div class="field">
+            <label class="lab" for="name">Full name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name">
+            <div class="err" data-for="name">Please enter your name.</div>
+          </div>
+          <div class="field">
+            <label class="lab" for="email">Email address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email">
+            <div class="err" data-for="email">Please enter a valid email address.</div>
+          </div>
+        </div>
+
+        <div class="two">
+          <div class="field">
+            <label class="lab" for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label class="lab" for="format">Preferred format <span class="req">*</span></label>
+            <select id="format" name="format">
+              <option value="">Please choose…</option>
+              <option>Microsoft Teams (online)</option>
+              <option>Salford campus (in person)</option>
+              <option>Either is fine</option>
+            </select>
+            <div class="err" data-for="format">Please choose a preferred format.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="lab" for="avail">General availability (optional)</label>
+          <textarea id="avail" name="avail" placeholder="e.g. weekday evenings, or Tuesday and Thursday mornings"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="lab" for="notes">Anything else you'd like us to know? (optional)</label>
+          <textarea id="notes" name="notes"></textarea>
+        </div>
+
+        <label class="lab" style="margin-bottom:11px">Please confirm <span class="req">*</span></label>
+        <label class="checkbox"><input type="checkbox" id="c18"><span>I am aged 18 or over and resident in the UK.</span></label>
+        <label class="checkbox"><input type="checkbox" id="cjury"><span>I am eligible for jury service in the UK (broadly: aged 18–75, a UK resident, not currently disqualified).</span></label>
+        <label class="checkbox"><input type="checkbox" id="ceng"><span>I am confident reading and discussing in English.</span></label>
+        <div class="err" data-for="confirm">Please tick all three confirmation boxes to continue.</div>
+
+        <div class="privacy">
+          <strong>How your data is used.</strong> The information you provide is used solely to arrange your participation in this study. It is held securely by the researcher under the University of Salford and is not shared with third parties. You may withdraw at any time, and your details will be deleted once recruitment is complete. For questions about your data, contact the researcher below.
+        </div>
+
+        <label class="checkbox"><input type="checkbox" id="cconsent"><span>I consent to my details being used to contact me about taking part in this study. <span class="req">*</span></span></label>
+        <div class="err" data-for="consent">Please give consent so we can contact you.</div>
+
+        <button type="submit" class="btn submit">Submit my enrolment</button>
+      </form>
+
+      <div class="form-msg" id="formMsg">
+        <strong>Thank you — your email is ready to send.</strong><br>
+        Your email app should have opened with your details pre-filled. Please press <em>send</em> to complete your enrolment.<br><br>
+        If nothing opened, please email the researcher directly at
+        <a href="mailto:D.Lockwood6@edu.salford.ac.uk">D.Lockwood6@edu.salford.ac.uk</a> with your name and preferred format.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Contact the team</h3>
+        <p><strong style="color:#fff">Researcher</strong><br>Dan Lockwood<br><a href="mailto:D.Lockwood6@edu.salford.ac.uk">D.Lockwood6@edu.salford.ac.uk</a></p>
+        <p style="margin-top:14px"><strong style="color:#fff">Supervisor</strong><br>Dr Helen Hart<br><a href="mailto:H.L.Hart1@salford.ac.uk">H.L.Hart1@salford.ac.uk</a></p>
+      </div>
+      <div>
+        <h3>About this study</h3>
+        <p>The Jury Reasoning Study is forensic psychology research conducted at the University of Salford, Manchester. Participation is voluntary and unpaid, and you may withdraw at any time.</p>
+      </div>
+    </div>
+    <div class="ethics-note">
+      This study has been reviewed and approved by the University of Salford Health Taught Ethics Panel.
+    </div>
+  </div>
+</footer>
+
+<!-- RESEARCHER QR TOOL — only visible at  yoursite/#researcher -->
+<section id="researcher">
+  <div class="wrap rtools">
+    <div class="kicker">Researcher tools (not shown to participants)</div>
+    <h2>Generate the enrolment QR code</h2>
+    <p class="lead-text">Paste the live web address where you've hosted this page, then download the QR code for your flyer.</p>
+    <div class="field" style="margin-top:18px">
+      <label class="lab" for="qrurl">Live page URL</label>
+      <input type="text" id="qrurl" placeholder="https://your-site.netlify.app">
+    </div>
+    <button class="btn btn-primary" style="background:var(--red);color:#fff" id="qrgen">Generate QR code</button>
+    <div id="qrbox" style="display:none"></div>
+    <button class="btn btn-primary" id="qrdl" style="display:none;margin-top:14px;background:var(--slate);color:#fff">Download PNG</button>
+  </div>
+</section>
+
+<script>
+  // ---- Form handling (mailto, no third-party data processor) ----
+  var form = document.getElementById('enrolForm');
+  var RESEARCHER_EMAIL = "D.Lockwood6@edu.salford.ac.uk";
+
+  function showErr(key, on){
+    var el = document.querySelector('.err[data-for="'+key+'"]');
+    if(el) el.style.display = on ? 'block' : 'none';
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var format = document.getElementById('format').value;
+    var avail = document.getElementById('avail').value.trim();
+    var notes = document.getElementById('notes').value.trim();
+    var c18 = document.getElementById('c18').checked;
+    var cjury = document.getElementById('cjury').checked;
+    var ceng = document.getElementById('ceng').checked;
+    var cconsent = document.getElementById('cconsent').checked;
+
+    var ok = true;
+    showErr('name', false); showErr('email', false); showErr('format', false);
+    showErr('confirm', false); showErr('consent', false);
+
+    if(!name){ showErr('name', true); ok=false; }
+    if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ showErr('email', true); ok=false; }
+    if(!format){ showErr('format', true); ok=false; }
+    if(!(c18 && cjury && ceng)){ showErr('confirm', true); ok=false; }
+    if(!cconsent){ showErr('consent', true); ok=false; }
+    if(!ok){ return; }
+
+    var subject = "Jury Reasoning Study — Enrolment from " + name;
+    var body =
+      "Hello Dan,\n\nI would like to take part in the Jury Reasoning Study. My details are below.\n\n" +
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Phone: " + (phone || "—") + "\n" +
+      "Preferred format: " + format + "\n" +
+      "Availability: " + (avail || "—") + "\n" +
+      "Notes: " + (notes || "—") + "\n\n" +
+      "I confirm that I am aged 18+, eligible for jury service, confident in English, " +
+      "and I consent to being contacted about taking part.\n\nThank you.";
+
+    var link = "mailto:" + RESEARCHER_EMAIL +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+    window.location.href = link;
+    form.style.display = 'none';
+    document.getElementById('formMsg').style.display = 'block';
+  });
+
+  // ---- Researcher-only QR generator (revealed via #researcher) ----
+  function maybeShowResearcher(){
+    if(location.hash === '#researcher'){
+      document.getElementById('researcher').classList.add('show');
+    }
+  }
+  window.addEventListener('hashchange', maybeShowResearcher);
+  maybeShowResearcher();
+
+  document.getElementById('qrgen').addEventListener('click', function(){
+    var url = document.getElementById('qrurl').value.trim();
+    if(!url){ alert('Please paste the live page URL first.'); return; }
+    var box = document.getElementById('qrbox');
+    box.innerHTML = '';
+    box.style.display = 'block';
+    new QRCode(box, { text:url, width:260, height:260, colorDark:"#1f2a37", colorLight:"#ffffff", correctLevel: QRCode.CorrectLevel.H });
+    document.getElementById('qrdl').style.display = 'inline-block';
+  });
+
+  document.getElementById('qrdl').addEventListener('click', function(){
+    var img = document.querySelector('#qrbox img') || document.querySelector('#qrbox canvas');
+    if(!img){ return; }
+    var src = img.tagName === 'IMG' ? img.src : img.toDataURL('image/png');
+    var a = document.createElement('a');
+    a.href = src; a.download = 'jury-study-qr.png'; a.click();
+  });
+</script>
