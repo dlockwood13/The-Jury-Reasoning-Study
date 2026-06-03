@@ -110,6 +110,18 @@
   .submit{width:100%;background:var(--red);color:#fff;font-size:16px;padding:16px;margin-top:8px}
   .submit:hover{background:var(--red-deep)}
 
+  .expect{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 26px 22px;margin:24px 0;box-shadow:var(--shadow)}
+  .expect h3{font-size:19px;color:var(--slate);margin-bottom:6px;font-family:var(--serif)}
+  .expect .sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+  .steps{counter-reset:s;display:grid;gap:16px;padding:0}
+  .steps li{list-style:none;display:flex;gap:14px;align-items:flex-start}
+  .steps li:before{counter-increment:s;content:counter(s);flex:0 0 30px;height:30px;border-radius:50%;
+     background:var(--red);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;margin-top:1px}
+  .steps strong{display:block;color:var(--slate);font-size:15px;margin-bottom:2px}
+  .steps span{color:var(--muted);font-size:14px}
+  .expect .note{margin-top:20px;border-top:1px solid var(--line);padding-top:16px;font-size:13.5px;color:var(--muted)}
+  .expect .note b{color:var(--slate)}
+
   /* footer */
   footer{background:var(--slate);color:#cdd6df;padding:40px 0 30px;font-size:14px}
   footer h3{color:#fff;font-size:16px;margin-bottom:12px}
@@ -233,6 +245,18 @@
     <div class="kicker">Register your interest</div>
     <h2>Enrol in the study</h2>
     <p class="lead-text">Complete the short form below. Your details go directly to the researcher, who will be in touch to arrange a convenient time. No data is shared with third parties.</p>
+
+    <div class="expect">
+      <h3>What to expect</h3>
+      <p class="sub">Here is exactly how taking part works, from start to finish.</p>
+      <ol class="steps">
+        <li><div><strong>Complete the form below</strong><span>It takes around two minutes. Enter your details, choose how you would like to take part, and tick the confirmation boxes.</span></div></li>
+        <li><div><strong>Submit and send</strong><span>When you press submit, your email app opens with your details already filled in. Simply press send, and your registration is complete. If your email app does not open, you can email the researcher directly using the address shown.</span></div></li>
+        <li><div><strong>We get in touch</strong><span>The researcher will reply by email, usually within a few days, to arrange a date and time that suits you.</span></div></li>
+        <li><div><strong>Your interview</strong><span>You attend one 45 to 60 minute session on Microsoft Teams or at Salford campus. You will read a short fictional case and discuss your views. There are no right or wrong answers, and no questions about your personal life.</span></div></li>
+      </ol>
+      <p class="note"><b>Good to know:</b> participation is voluntary and unpaid, the interview is audio-recorded so responses can be analysed accurately, and you may withdraw at any time without giving a reason. Places are limited to 15, so early registration is encouraged.</p>
+    </div>
 
     <div class="form-wrap">
       <form id="enrolForm" novalidate>
